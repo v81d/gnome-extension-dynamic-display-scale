@@ -21,8 +21,6 @@ import { DisplayScaleController } from "./lib/display-scale-controller.js";
 
 export default class DynamicDisplayScaleExtension extends Extension {
   enable() {
-    this._settings = this.getSettings();
-
     this._displayScaleController = new DisplayScaleController();
 
     this._displayScaleController.setScale(1.66).catch((e) => {
