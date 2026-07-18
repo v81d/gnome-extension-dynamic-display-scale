@@ -1,0 +1,9 @@
+{
+  "name": "Dynamic Display Scale",
+  "description": "Automatically switch the display scale when switching between desktop and tablet modes.",
+  "uuid": "dynamic-display-scale@v81d",
+  "shell-version": [
+    "50"
+  ],
+  "gettext-domain": "dynamic-display-scale@v81d"
+}
