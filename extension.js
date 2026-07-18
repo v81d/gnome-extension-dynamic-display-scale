@@ -15,12 +15,24 @@
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
-import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Main from "resource:///org/gnome/shell/ui/main.js";
+import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
+import { DisplayScaleController } from "./lib/display-scale-controller.js";
 
 export default class DynamicDisplayScaleExtension extends Extension {
-    enable() {
-    }
+  enable() {
+    this._settings = this.getSettings();
 
-    disable() {
-    }
+    this._displayScaleController = new DisplayScaleController();
+
+    this._displayScaleController.setScale(1.66).catch((e) => {
+      Main.notifyError("Error Changing Display Scale", e.message);
+    });
+
+    this._displayScaleController.getCurrentScales().then((scales) => {
+      log(JSON.stringify(scales));
+    });
+  }
+
+  disable() {}
 }
