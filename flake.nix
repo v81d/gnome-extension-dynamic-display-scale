@@ -17,6 +17,9 @@
         prettier
         vtsls
         vscode-css-languageserver
+        vscode-json-languageserver
+        lemminx
+        glib
       ];
     };
   };
