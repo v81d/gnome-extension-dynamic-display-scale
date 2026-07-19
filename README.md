@@ -1,9 +1,9 @@
 # Dynamic Display Scale
 
-![GitHub top language](https://img.shields.io/github/languages/top/v81d/dynamic-display-scale?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/v81d/dynamic-display-scale?style=for-the-badge)
-![GitHub license](https://img.shields.io/github/license/v81d/dynamic-display-scale?style=for-the-badge)
-![GitHub release](https://img.shields.io/github/v/release/v81d/dynamic-display-scale?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/v81d/gnome-extension-dynamic-display-scale?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/v81d/gnome-extension-dynamic-display-scale?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/v81d/gnome-extension-dynamic-display-scale?style=for-the-badge)
+![GitHub release](https://img.shields.io/github/v/release/v81d/gnome-extension-dynamic-display-scale?style=for-the-badge)
 
 Dynamic Display Scale is a GNOME Shell extension that allows you to configure separate display scales for desktop and tablet modes.
 
@@ -32,8 +32,8 @@ To install Dynamic Display Scale manually, follow the instructions:
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/v81d/dynamic-display-scale.git
-cd dynamic-display-scale
+git clone https://github.com/v81d/gnome-extension-dynamic-display-scale.git
+cd gnome-extension-dynamic-display-scale
 ```
 
 2. Pack the extension into a `.zip` archive:
@@ -60,11 +60,19 @@ gnome-extensions enable dynamic-display-scale@v81d
 
 Hopefully this extension brings as much convenience as it does for me! :)
 
+## Acknowledgements
+
+A huge thank you to the developers of these open-source projects. Their work made developing this extension much easier:
+
+- [GJS Guide for GNOME Extensions](https://gjs.guide/extensions): Documentation for creating GNOME extensions.
+- [Display Scale Switcher (GNOME Extension)](https://gitlab.com/knokelmaat/display-scale-switcher-gnome-extension): Referenced for implementing the DBus display scale switching system for this extension.
+- [TouchUp (GNOME Extension)](https://github.com/mityax/gnome-extension-touchup): Referenced for creating a Clutter seat to watch the shell display mode (desktop/tablet mode).
+
 ## Contributing
 
 ### Reporting Issues
 
-To report an issue or bug, visit the official [issue tracker](https://github.com/v81d/dynamic-display-scale/issues) on GitHub.
+To report an issue or bug, visit the official [issue tracker](https://github.com/v81d/gnome-extension-dynamic-display-scale/issues) on GitHub.
 
 ### Translating the Project
 
