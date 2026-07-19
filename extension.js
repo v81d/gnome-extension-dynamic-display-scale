@@ -23,7 +23,10 @@ import { TabletModeWatcher } from "./lib/tablet-mode-watcher.js";
 export default class DynamicDisplayScaleExtension extends Extension {
   enable() {
     this._settings = this.getSettings();
-    this._displayScaleController = new DisplayScaleController(this._settings);
+    this._displayScaleController = new DisplayScaleController(
+      this._settings,
+      this.gettext.bind(this),
+    );
     this._tabletModeWatcher = new TabletModeWatcher();
 
     // change scale when mode changes
