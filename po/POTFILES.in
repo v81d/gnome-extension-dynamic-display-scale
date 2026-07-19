@@ -1,0 +1,7 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+extension.js
+lib/display-scale-controller.js
+lib/tablet-mode-watcher.js
+lib/utils/sprintf.js
+prefs.js
