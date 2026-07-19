@@ -18,19 +18,35 @@
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 import { DisplayScaleController } from "./lib/display-scale-controller.js";
+import { TabletModeWatcher } from "./lib/tablet-mode-watcher.js";
 
 export default class DynamicDisplayScaleExtension extends Extension {
   enable() {
+    this._settings = this.getSettings();
     this._displayScaleController = new DisplayScaleController();
+    this._tabletModeWatcher = new TabletModeWatcher();
 
-    this._displayScaleController.setScale(1.66).catch((e) => {
+    // change scale when mode changes
+    this._tabletModeWatcher.connect("changed", () =>
+      this._applyForCurrentMode(),
+    );
+
+    this._applyForCurrentMode();
+  }
+
+  _applyForCurrentMode() {
+    const scale = this._tabletModeWatcher.isTabletMode
+      ? this._settings.get_double("tablet-mode-scale")
+      : this._settings.get_double("desktop-mode-scale");
+
+    this._displayScaleController.setScale(scale).catch((e) => {
       Main.notifyError("Error Changing Display Scale", e.message);
-    });
-
-    this._displayScaleController.getCurrentScales().then((scales) => {
-      log(JSON.stringify(scales));
     });
   }
 
-  disable() {}
+  disable() {
+    this._tabletModeWatcher?.destroy();
+    this._tabletModeWatcher = null;
+    this._displayScaleController = null;
+  }
 }
