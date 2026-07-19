@@ -30,8 +30,6 @@ export default class DynamicDisplayScaleExtension extends Extension {
     this._tabletModeWatcher.connect("changed", () =>
       this._applyForCurrentMode(),
     );
-
-    this._applyForCurrentMode();
   }
 
   _applyForCurrentMode() {
