@@ -4,13 +4,12 @@
     path="/org/gnome/shell/extensions/dynamic-display-scale/">
     <key name="desktop-mode-scale" type="d">
       <default>1.0</default>
-      <summary>Desktop Mode Scale</summary>
-      <description>Display scale when in desktop mode (not in tablet mode).</description>
     </key>
     <key name="tablet-mode-scale" type="d">
       <default>1.0</default>
-      <summary>Tablet Mode Scale</summary>
-      <description>Display scale when in tablet (touchscreen) mode.</description>
+    </key>
+    <key name="show-unsupported-notification" type="b">
+      <default>true</default>
     </key>
   </schema>
 </schemalist>
