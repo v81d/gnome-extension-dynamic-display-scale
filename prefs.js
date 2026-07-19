@@ -69,6 +69,20 @@ export default class DynamicDisplayScalePreferences extends ExtensionPreferences
     });
     scaleSettingsGroup.add(tabletModeScaleRow);
 
+    const alertsGroup = new Adw.PreferencesGroup({
+      title: _("Alerts"),
+      description: _("Control whether certain alerts are displayed."),
+    });
+    generalPage.add(alertsGroup);
+
+    const showUnsupportedNotificationRow = new Adw.SwitchRow({
+      title: _("Show Unsupported Notification"),
+      subtitle: _(
+        "Display an alert when switching to an unsupported scale. When this happens, the display scale is snapped to the nearest supported value.",
+      ),
+    });
+    alertsGroup.add(showUnsupportedNotificationRow);
+
     settings.bind(
       "desktop-mode-scale",
       desktopModeScaleRow,
@@ -79,6 +93,12 @@ export default class DynamicDisplayScalePreferences extends ExtensionPreferences
       "tablet-mode-scale",
       tabletModeScaleRow,
       "value",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
+    settings.bind(
+      "show-unsupported-notification",
+      showUnsupportedNotificationRow,
+      "active",
       Gio.SettingsBindFlags.DEFAULT,
     );
   }
