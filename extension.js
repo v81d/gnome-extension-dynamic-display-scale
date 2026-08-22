@@ -16,6 +16,7 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
+import GLib from "gi://GLib";
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 import { DisplayScaleController } from "./lib/display-scale-controller.js";
 import { TabletModeWatcher } from "./lib/tablet-mode-watcher.js";
@@ -33,6 +34,12 @@ export default class DynamicDisplayScaleExtension extends Extension {
     this._tabletModeWatcher.connect("changed", () =>
       this._applyForCurrentMode(),
     );
+
+    this._startupId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+      this._applyForCurrentMode();
+      this._startupId = null;
+      return GLib.SOURCE_REMOVE;
+    });
   }
 
   _applyForCurrentMode() {
@@ -49,5 +56,10 @@ export default class DynamicDisplayScaleExtension extends Extension {
     this._tabletModeWatcher?.destroy();
     this._tabletModeWatcher = null;
     this._displayScaleController = null;
+
+    if (this._startupId) {
+      GLib.source_remove(this._startupId);
+      this._startupId = null;
+    }
   }
 }
