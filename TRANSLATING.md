@@ -21,16 +21,16 @@ All original English strings are stored in `dynamic-display-scale.pot`. Translat
 ## Guidelines
 
 - Don't forget to fill out the metadata at the top of the `.po` file.
-- Please do not translate the app name. Keep all instances of the string "Dynamic Display Scale" as-is unless it is not used as the name of this software.
+- Please do not translate the extension name. Keep all instances of the string "Custom OSK Height" as-is unless it is not used as the name of this software.
 
 ## Getting Started
 
 You can edit `.po` files with [Poedit](https://poedit.net) or simply a text editor. To get started, follow the instructions below.
 
-1. [Fork](https://github.com/v81d/dynamic-display-scale/fork) the repository and clone the `translate` branch locally.
+1. [Fork](https://github.com/v81d/dynamic-display-scale/fork) the repository and clone the `main` branch locally.
 
 ```bash
-git clone --branch=translate https://github.com/v81d/dynamic-display-scale.git
+git clone --branch=main https://github.com/v81d/dynamic-display-scale.git
 cd dynamic-display-scale
 ```
 
@@ -48,7 +48,7 @@ Replace `LL` with your language code (e.g., `de`, `fr`, `es`, `pt_BR`, etc.). Ma
 
 ## Updating Translations
 
-If strings in the app change, update your `.po` file using:
+If strings in the extension change, update your `.po` file using:
 
 ```bash
 msgmerge --update po/LL.po po/dynamic-display-scale.pot
@@ -63,11 +63,11 @@ Once you have completed and tested your translations, you can begin the submissi
 1. Navigate to the [project's repository](https://github.com/v81d/dynamic-display-scale).
 2. Create a new pull request:
 
-- Select `v81d:translate` as the base branch and `YOUR_USERNAME:translate` as the head branch.
+- Select `main` as the base branch and your translation branch as the head branch.
 - Title your pull request `i18n: add LL translations` (replace `LL` with your language code) or similar.
 
 3. Submit the pull request and wait for approval.
 
 ## Thank You
 
-Thank you for contributing to this project and making the app more accessible for everyone!
+Thank you for contributing to this project and making the extension more accessible for everyone!
