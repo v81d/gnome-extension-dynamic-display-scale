@@ -9,7 +9,6 @@ This project uses GNU gettext for localization. Translation files are located in
 ```
 └── po/
     ├── LINGUAS                     # list of added localizations
-    ├── meson.build
     ├── POTFILES.in
     ├── dynamic-display-scale.pot   # translation template (do not edit)
     └── ...
